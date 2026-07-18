@@ -366,3 +366,108 @@ nav.scrolled{
     background:rgba(0,0,0,.92);
     backdrop-filter:blur(15px);
 }
+
+/* ===== Hero text animation ===== */
+
+.hero-overlay>*{
+opacity:0;
+transform:translateY(40px);
+animation:fadeUp 1s forwards;
+}
+
+.hero-small{
+animation-delay:.2s;
+}
+
+.hero h1{
+animation-delay:.5s;
+}
+
+.hero-description{
+animation-delay:.8s;
+}
+
+.hero-button{
+animation-delay:1.1s;
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* ===== Better cards ===== */
+
+.card{
+position:relative;
+overflow:hidden;
+transition:.45s ease;
+}
+
+.card::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,.45),transparent);
+opacity:0;
+transition:.4s;
+pointer-events:none;
+}
+
+.card:hover::after{
+opacity:1;
+}
+
+.card:hover{
+transform:translateY(-12px) scale(1.02);
+box-shadow:0 30px 60px rgba(0,0,0,.45);
+}
+
+.card img{
+transition:transform .8s ease;
+}
+
+.card:hover img{
+transform:scale(1.08);
+}
+
+/* ===== Buttons ===== */
+
+.hero-button,
+.gallery-link a{
+
+position:relative;
+overflow:hidden;
+
+}
+
+.hero-button::before,
+.gallery-link a::before{
+
+content:"";
+position:absolute;
+top:0;
+left:-120%;
+width:60%;
+height:100%;
+background:rgba(255,255,255,.25);
+transform:skewX(-20deg);
+transition:.6s;
+
+}
+
+.hero-button:hover::before,
+.gallery-link a:hover::before{
+
+left:160%;
+
+}
