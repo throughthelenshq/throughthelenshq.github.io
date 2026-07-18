@@ -1,59 +1,41 @@
-// Fade in photos when scrolling
+// Fade in sections
 
-const photos = document.querySelectorAll(".photo");
+const observer = new IntersectionObserver((entries)=>{
 
-const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry=>{
 
-    entries.forEach(entry => {
+if(entry.isIntersecting){
 
-        if(entry.isIntersecting){
+entry.target.classList.add("show");
 
-            entry.target.classList.add("show");
+}
 
-        }
-
-    });
+});
 
 },{
+threshold:0.15
+});
 
-    threshold:0.15
+document.querySelectorAll("section").forEach(section=>{
+
+observer.observe(section);
 
 });
 
-photos.forEach(photo=>{
+// Navbar animation
 
-    observer.observe(photo);
+window.addEventListener("scroll",()=>{
 
-});
+const nav=document.querySelector("nav");
 
-// Image Lightbox
+if(window.scrollY>80){
 
-const images=document.querySelectorAll(".photo img");
+nav.classList.add("scrolled");
 
-const lightbox=document.createElement("div");
+}else{
 
-lightbox.id="lightbox";
+nav.classList.remove("scrolled");
 
-lightbox.innerHTML="<img>";
-
-document.body.appendChild(lightbox);
-
-const lightboxImg=lightbox.querySelector("img");
-
-images.forEach(image=>{
-
-    image.addEventListener("click",()=>{
-
-        lightbox.classList.add("active");
-
-        lightboxImg.src=image.src;
-
-    });
-
-});
-
-lightbox.addEventListener("click",()=>{
-
-    lightbox.classList.remove("active");
+}
 
 });
