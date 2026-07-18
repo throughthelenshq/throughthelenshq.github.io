@@ -1,6 +1,4 @@
-// Fade in sections
-
-const observer = new IntersectionObserver((entries)=>{
+const observer=new IntersectionObserver(entries=>{
 
 entries.forEach(entry=>{
 
@@ -12,23 +10,15 @@ entry.target.classList.add("show");
 
 });
 
-},{
-threshold:0.15
-});
+},{threshold:.15});
 
-document.querySelectorAll("section").forEach(section=>{
-
-observer.observe(section);
-
-});
-
-// Navbar animation
+document.querySelectorAll("section,.card").forEach(el=>observer.observe(el));
 
 window.addEventListener("scroll",()=>{
 
 const nav=document.querySelector("nav");
 
-if(window.scrollY>80){
+if(window.scrollY>60){
 
 nav.classList.add("scrolled");
 
