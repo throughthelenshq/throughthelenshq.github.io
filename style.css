@@ -578,3 +578,12 @@ font-size:14px;
     line-height:2;
     font-size:1.05rem;
 }
+
+.card.full-width{
+    grid-column: 1 / -1;
+}
+
+.card.full-width img{
+    height:500px; /* Increase or decrease to your liking */
+    object-fit:cover;
+}
