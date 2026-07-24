@@ -688,3 +688,13 @@ font-size:34px;
 }
 
 }
+
+footer a{
+color:#bdbdbd;
+text-decoration:none;
+transition:.3s;
+}
+
+footer a:hover{
+color:white;
+}
